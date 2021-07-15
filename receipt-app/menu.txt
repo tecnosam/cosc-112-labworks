@@ -1,0 +1,24 @@
+----
+BARBING SALOON
+haircut
+H
+----
+RESTAURANT & BARS
+meal
+M
+----
+BOOKSHOP
+book
+B
+----
+CLOTHING STORE
+cloth
+C
+----
+VIEW RECEIPT
+receipt
+V
+----
+EXIT
+exit
+Q

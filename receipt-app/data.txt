@@ -1,0 +1,32 @@
+----
+fade
+haircut
+200
+----
+punk
+haircut
+100
+----
+bald
+haircut
+50
+----
+dreadlocks
+haircut
+700
+----
+Amala and Ewedu
+meal
+300
+----
+Rice and beans
+meal
+200
+----
+Eba and Egusi
+meal
+400
+----
+Plantain and Egg
+meal
+500
