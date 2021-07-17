@@ -30,3 +30,7 @@ meal
 Plantain and Egg
 meal
 500
+----
+Gucci purse
+cloth
+9000

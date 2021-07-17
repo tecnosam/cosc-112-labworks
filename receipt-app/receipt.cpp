@@ -44,19 +44,20 @@ int main() {
 
     if ( face_m == 'y' && id_card == 'y' ) {
         char option;
-        static vector<Product*> cart;
+        vector<Product*> cart;
 
         loadData( "data.txt", "menu.txt" );
+        system("clear");
 
         do {
             displayMenu();
 
             cout<<"Where would you like to go: ";
             cin>>option;
+            system("clear");
 
             option = toupper( option );
             int n_products = listProducts( option );
-
 
             switch ( option ) {
                 case 'H':
@@ -67,6 +68,9 @@ int main() {
                         int item_i; // item user is about to purchase
                         cout<<"Input number behind product: ";
                         cin>>item_i;
+                        if (item_i == 0) {
+                            break;
+                        }
                         cart.push_back( &(products[ item_i - 1 ]) );
                         cout<<"Product Added to cart successfully :->"<<endl<<endl;
                     } else {
@@ -177,6 +181,10 @@ int listProducts( char option ) {
             n++;
         }
     }
+    if (n){
+
+        cout<<"\t0) Back to main menu\t$0"<<endl;
+    }
     cout<<endl;
     return n;
 
@@ -195,15 +203,18 @@ void displayMenu() {
 
 
 void displayReceipt( vector<Product*> cart ) {
-    int n_products;
-    float bill;
+    if (!(cart.size())) {
+        return;
+    }
+    int n_products = 0;
+    float bill = 0;
     for (int j = 0; j < cart.size(); j++) {
         n_products++;
         bill += cart[j]->price;
         cout<<"\t$"<<cart[j]->price<<"\t\t"<<cart[j]->name<<endl;
     }
 
-    cout<<"$"<<bill<<"\t\tTotal("<<n_products<<")"<<endl;
+    cout<<"\t$"<<bill<<"\t\tTotal("<<n_products<<")"<<endl;
 
     cout<<endl;
 }
