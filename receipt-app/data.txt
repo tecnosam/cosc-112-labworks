@@ -34,3 +34,11 @@ meal
 Gucci purse
 cloth
 9000
+----
+Bubu
+cloth
+20.3
+----
+slides
+cloth
+9.99

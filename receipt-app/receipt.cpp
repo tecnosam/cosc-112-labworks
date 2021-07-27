@@ -49,6 +49,7 @@ int main() {
         loadData( "data.txt", "menu.txt" );
         system("clear");
 
+
         do {
             displayMenu();
 
@@ -58,37 +59,31 @@ int main() {
 
             option = toupper( option );
             int n_products = listProducts( option );
-
-            switch ( option ) {
-                case 'H':
-                case 'M':
-                case 'B':
-                case 'C':
-                    if ( n_products ) {
-                        int item_i; // item user is about to purchase
-                        cout<<"Input number behind product: ";
-                        cin>>item_i;
-                        if (item_i == 0) {
-                            break;
-                        }
-                        cart.push_back( &(products[ item_i - 1 ]) );
-                        cout<<"Product Added to cart successfully :->"<<endl<<endl;
-                    } else {
-                        cout<<endl;
-                        cout<<"We are currently trying to restock, please check back in a while :-)";
-                        cout<<endl<<endl;
+            if (n_products) {
+                for ( ; ; ) {
+                    int item_i; // item user is about to purchase
+                    cout<<"Input number behind product: ";
+                    cin>>item_i;
+                    if (item_i == 0) {
+                        system("clear");
+                        break;
                     }
-                    break;
-                case 'V':
-                    // view receipt
-                    displayReceipt( cart );
-                    break;
-                case 'Q':
-                    // Q to exit and print out receipt
-                    break;
-                default:
-                    cout<<"Could not find section in our store: Please try something else";
-                    cout<<endl;
+                    cart.push_back( &(products[ item_i - 1 ]) );
+                    cout<<"Product "<< products[ item_i -1].name <<" added to cart successfully :->"<<endl<<endl;
+                }
+            } else {
+                switch ( option ) {
+                    case 'V':
+                        // view receipt
+                        displayReceipt( cart );
+                        break;
+                    case 'Q':
+                        // Q to exit and print out receipt
+                        break;
+                    default:
+                        cout<<"Could not find section in our store: Please try something else";
+                        cout<<endl;
+                }
             }
         } while ( option != 'Q' );
     }else {
